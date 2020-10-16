@@ -187,3 +187,19 @@ Content.php
 get_template_part("folder-parts/content")
 
     
+==============================
+
+
+	add_action( 'wp_enqueue_scripts', 'tt_child_enqueue_parent_styles' );
+
+	function tt_child_enqueue_parent_styles() {
+	   wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css?t=[timestamp]' );
+	}
+	
+	function is_blog () {
+    return ( is_archive() || is_author() || is_category() || is_home() || is_single() || is_tag()) && 'post' == get_post_type();
+}
+======================================================================================================================
+
+
+
